@@ -7,12 +7,10 @@
 :root {
     --primary-font: "Open Sans", sans-serif;
     --secondary-font: "Cal Sans", sans-serif;
-    --primary-color: #57b3c8;
-    /*blue*/
-    --secondary-color: #423317;
-    /*brown*/
-    --highlight-color: #ff781f;
-    /*orange*/
+    --primary-color: #000000;
+    /*black*/
+    --secondary-color: #ffffff;
+    /*white*/
 }
 
 /*Global Styles*/
@@ -25,7 +23,7 @@ body h1,
 body h2,
 body h3 {
     font-family: var(--secondary-font);
-    color: var(--secondary-color);
+    color: var(--primary-color);
 }
 
 h1,
@@ -39,7 +37,7 @@ h2 {
 }
 
 .sub-heading-color {
-    color: var(--highlight-color);
+    color: var(--secondary-color);
 }
 
 .display-6 {
@@ -57,35 +55,99 @@ h2 {
     width: 100px;
 }
 
-/* Hero Video*/
+.navbar-logo {
+    width: 200px;
+}
 
-#carouselExampleFade {
+#navbar .custom-button-outline-navbar {
+    border: 2px solid var(--secondary-color);
+    padding: 7px 25px;
+    color: var(--secondary-color);
+}
+#navbar .custom-button-outline-navbar:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+/* Hero Section*/
+
+.hero-wrapper {
     position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-    border-radius: 0;
 }
 
-/* Carousel Items */
-
-#carouselExampleFade .carousel-inner,
-#carouselExampleFade .carousel-item {
-    width: 100%;
-    height: 100%;
+.hero-container {
+    margin-top: 0;
+    padding-top: clamp(90px, 10vh, 130px);
+    margin-bottom: 1rem;
 }
 
-#carouselExampleFade video,
-#carouselExampleFade img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+.hero-image {
     display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
 }
+
+.hero-content {
+    position: absolute;
+    top: 25%;
+    right: 5%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(0.5rem, 2vw, 1.5rem);
+
+    width: 42%;
+    max-width: 480px;
+}
+
+.hero-logo {
+    display: block;
+    justify-content: center;
+    width: 100%;
+
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: clamp(0.3rem, 0.8vw, 0.65rem);
+    width: 90%;
+}
+
+.hero-buttons .btn {
+    flex: 0 1 auto;
+    min-width: 0;
+    white-space: nowrap;
+    padding: clamp(0.3rem, 0.6vw, 0.5rem)
+             clamp(0.5rem, 0.9vw, 0.8rem);
+    font-size: clamp(0.65rem, 0.9vw, 0.85rem);
+    line-height: 1.3;
+    text-align: center;
+}
+
+/* Smaller screens */
+@media (max-width: 576px) {
+    .hero-content {
+        right: 3%;
+        width: 48%;
+    }
+
+    .hero-logo {
+        width: 85%;
+    }
+
+    .hero-buttons {
+        gap: 0.3rem;
+    }
+
+    .hero-buttons .btn {
+        white-space: normal;
+        line-height: 1.2;
+    }
+}
+
 
 /*Booking and Contact Us Forms*/
 
@@ -93,24 +155,42 @@ h2 {
     margin-bottom: 3rem;
 }
 
+.workshop-widget-container {
+    width: auto;
+    margin: 2rem;
+    min-width: 0;
+}
+
+.workshop-inline-widget {
+    width: 100%;
+    min-width: 320px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 375px) {
+    .workshop-widget-container {
+        margin: 1rem;
+    }
+}
+
 /*Custom button styles*/
 
 .btn.custom-button-outline {
-    border: 1px solid var(--highlight-color);
+    border: 2px solid var(--secondary-color);
     padding: 7px 25px;
-    color: var(--highlight-color);
+    color: var(--secondary-color);
     font-weight: bold;
 }
 
 .btn.custom-button-outline:hover {
-    background-color: var(--highlight-color);
-    color: #ffffff;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
 }
 
 .btn.custom-button-filled {
-    border: 1px solid var(--highlight-color);
-    background-color: var(--highlight-color);
-    color: #ffffff;
+    border: 1px solid var(--secondary-color);
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
 }
 
 .btn.custom-button-filled:hover {
@@ -131,42 +211,11 @@ h2 {
     font-size: 2rem;
 }
 
-/*Custom circles and text*/
-
-.custom-circles .circle {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--secondary-font);
-    font-size: 4rem;
-    color: white;
-    margin: 0 auto 10px;
-}
-
-/* Specific color */
-
-.custom-circles .circle-orange {
-    background-color: var(--highlight-color);
-}
-
-/*Circle text*/
-
-.circle-heading {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-}
-.circle-text {
-    font-family: var(--primary-font);
-    margin-top: 1rem;
-}
-/*Our Events*/
+/*Cards*/
 
 .card-body > .card-title {
     font-family: var(--secondary-font);
-    color: var(--secondary-color);
+    color: var(--primary-color);
 }
 
 #our-events .card {
@@ -195,43 +244,130 @@ h2 {
     margin-top: 2rem;
 }
 
-/*Rider Checklist Section*/
 
-.checklist-icon {
+/* About Section */
+#header {
+    padding-bottom: 3rem;
+}
+
+/* Hero Image */
+.hero-container {
+    max-width: 1200px;
+}
+
+.hero-wrapper {
+    width: 100%;
+}
+
+.hero-image {
+    display: block;
+    width: 100%;
+    max-height: auto;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+    margin-bottom: 2.5rem;
+}
+
+/* About Text */
+.about-text {
+    max-width: 850px;
+    margin: 0 auto;
     color: var(--primary-color);
+    font-size: 1.05rem;
+    line-height: 1.8;
 }
 
-#rider-checklist .list-unstyled {
-    max-width: 260px;
+.about-text p {
+    margin-bottom: 1.5rem;
 }
 
-#rider-checklist h5 {
-    font-family: var(--secondary-font);
-    color: var(--highlight-color);
+/* Final paragraph */
+.about-text p:last-child {
+    margin-bottom: 0;
+    font-weight: bold;
 }
 
-/*Testimonials Section*/
+/* Mobile Styling */
+@media (max-width: 767.98px) {
+    .hero-image {
+        max-height: auto;
+        margin-bottom: 1.5rem;
+        border-radius: 4px;
+    }
 
-#testimonials {
-    margin-bottom: 6rem;
+    .about-text {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .about-text p {
+        margin-bottom: 1.25rem;
+    }
 }
 
-#testimonials h5 {
-    font-family: var(--secondary-font);
-    color: var(--highlight-color);
-}
 
-/*Footer Newsletter/Socials*/
+/*Newsletter*/
 
 #newsletter {
     background-color: var(--primary-color);
+}
+
+#newsletter h2 {
+    color: var(--secondary-color);
+}
+
+/* Google Maps Section*/
+
+
+
+/* Find Us Section */
+#find-us {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+#find-us h2,
+#find-us h5 {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+#find-us address {
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+/* Map */
+.find-us-map {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.find-us-map iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+/* Policy Buttons */
+.find-us-links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 /*Social links*/
 
 .social-links a {
     color: var(--primary-color);
-    font-size: 2rem;
+    font-size: 2.0rem;
     padding: 30px;
 }
 
@@ -239,10 +375,51 @@ h2 {
     color: var(--highlight-color);
 }
 
+/* Mobile Layout */
+@media (max-width: 767.98px) {
+    .find-us-map {
+        height: 300px;
+    }
+
+    .find-us-links {
+        gap: 0.5rem;
+    }
+}
+
+
+
 /* Gallery Page*/
 
 #photos img {
     width: 100%;
+}
+
+#footer {
+
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 2rem 0;
+}
+
+.footer-policy-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+
+.btn.custom-button-outline-footer {
+    display: inline-block;
+    border: 2px solid var(--primary-color);
+    padding: 7px 25px;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.btn.custom-button-outline-footer:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
 }
 
 /* Media Queries */
@@ -260,6 +437,34 @@ h2 {
 @media screen and (min-width: 576px) {
     .section {
         padding-top: 100px;
+    }
+}
+/* Small screens */
+@media (max-width: 576px) {
+    .hero-content {
+        right: 3%;
+        width: 48%;
+    }
+
+    .hero-logo {
+        width: 85%;
+    }
+
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.4rem;
+        width: 100%;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 180px;
+        padding: 0.4rem 0.5rem;
+        font-size: clamp(0.6rem, 2.5vw, 0.8rem);
+        line-height: 1.2;
+        white-space: nowrap;
     }
 }
 
